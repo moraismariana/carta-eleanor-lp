@@ -1,0 +1,55 @@
+#inicio {
+  height: 100vh;
+  position: relative;
+  img {
+    position: absolute;
+    top: $spacing-1;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 120px;
+    width: 120px;
+    height: 120px;
+    border: 8px solid $w2;
+    @include box-shadow;
+  }
+  div {
+    @include container;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    @include align-div;
+    max-width: fit-content;
+    text-align: center;
+    h1 {
+      @include title-1;
+      @include mbottom-3;
+    }
+    h2 {
+      @include title-2;
+      @include mbottom-3;
+      font-weight: 400;
+    }
+    p {
+      @include text-1;
+      max-width: 40ch;
+      @include align-div;
+      color: $b2;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    height: ($spacing-1 + px-rem((120px + 16px)/2));
+    width: 100%;
+    background-image: url("../../img/inicio/inicio-bg.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  &::after {
+    content: url("../../img/inicio/seta.svg");
+    position: absolute;
+    bottom: $spacing-2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
