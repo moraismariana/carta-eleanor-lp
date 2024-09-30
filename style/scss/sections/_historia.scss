@@ -1,0 +1,20 @@
+#historia {
+  background-image: url("../../img/historia/historia-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  @include mbottom-1;
+  color: $w;
+  text-align: center;
+  div {
+    @include container;
+    padding-top: (2 * $spacing-1);
+    padding-bottom: (2 * $spacing-1);
+    h2 {
+      @include title-2;
+      @include mbottom-2;
+    }
+    p {
+      @include text-1;
+    }
+  }
+}
