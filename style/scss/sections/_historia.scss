@@ -14,7 +14,9 @@
       @include mbottom-2;
     }
     p {
-      @include text-1;
+      @include text-2;
+      max-width: 84ch;
+      @include align-div;
     }
   }
 }

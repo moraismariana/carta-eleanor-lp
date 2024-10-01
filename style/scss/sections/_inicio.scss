@@ -9,7 +9,7 @@
     border-radius: 120px;
     width: 120px;
     height: 120px;
-    border: 8px solid $w2;
+    @include border;
     @include box-shadow;
   }
   div {

@@ -1,0 +1,42 @@
+#depoimentos {
+  @include container;
+  @include mbottom-1;
+  text-align: center;
+  h2 {
+    @include title-2;
+    @include mbottom-2;
+    margin-bottom: $spacing-2 + px-rem(80px/2);
+  }
+  p {
+    @include text-2;
+    max-width: 70ch;
+    @include align-div;
+    &:nth-of-type(1) {
+      @include mbottom-3;
+      padding-top: $spacing-3 + px-rem(8px);
+    }
+    &:nth-of-type(2) {
+      font-family: "Teachers";
+      font-size: px-rem(24px);
+      font-weight: 500;
+    }
+  }
+}
+
+#depoimentos .leitor {
+  background-color: $w;
+  @include box-shadow;
+  border-radius: 10px;
+  position: relative;
+  padding: $spacing-2;
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80px;
+    border-radius: 50px;
+    @include border;
+    @include box-shadow;
+    top: -48px;
+  }
+}
