@@ -1,3 +1,24 @@
+// RESPONSIVIDADE
+@mixin screen($tela) {
+  @if $tela == "mobile" {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $tela == "tablet" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $tela == "notebook-s" {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $tela == "notebook-m" {
+    @media (max-width: 1380px) {
+      @content;
+    }
+  }
+}
+
 // CONTAINER
 @mixin container {
   box-sizing: border-box;
@@ -19,27 +40,6 @@
 @mixin align-div {
   margin-left: auto;
   margin-right: auto;
-}
-
-// RESPONSIVIDADE
-@mixin screen($tela) {
-  @if $tela == "mobile" {
-    @media (max-width: 480px) {
-      @content;
-    }
-  } @else if $tela == "tablet" {
-    @media (max-width: 768px) {
-      @content;
-    }
-  } @else if $tela == "notebook-s" {
-    @media (max-width: 1024px) {
-      @content;
-    }
-  } @else if $tela == "notebook-m" {
-    @media (max-width: 1300px) {
-      @content;
-    }
-  }
 }
 
 @mixin responsive($tela) {
@@ -85,4 +85,7 @@ $spacing-3-2: px-rem(16px);
 
 @mixin border {
   border: 8px solid $w2;
+  @include screen(notebook-s) {
+    border: 6px solid $w2;
+  }
 }

@@ -14,6 +14,10 @@
       @include text-2;
       align-self: center;
     }
+    @include screen(tablet) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   }
 }
 

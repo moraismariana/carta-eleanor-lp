@@ -42,14 +42,23 @@
     @include box-shadow;
     top: -48px;
   }
+  @include screen(mobile) {
+    padding: $spacing-2 - px-rem(10px);
+  }
 }
 
 .splide__arrow--prev {
   left: calc(18.75% - 12px);
+  @include screen(notebook-s) {
+    left: calc(10% - 12px);
+  }
 }
 
 .splide__arrow--next {
   right: calc(18.75% - 12px);
+  @include screen(notebook-s) {
+    right: calc(10% - 12px);
+  }
 }
 
 .splide__arrow {
