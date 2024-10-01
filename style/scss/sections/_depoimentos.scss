@@ -1,11 +1,12 @@
 #depoimentos {
-  @include container;
+  //   @include container;
   @include mbottom-1;
+  margin-bottom: $spacing-1 - px-rem(20px);
   text-align: center;
   h2 {
     @include title-2;
     @include mbottom-2;
-    margin-bottom: $spacing-2 + px-rem(80px/2);
+    margin-bottom: $spacing-2;
   }
   p {
     @include text-2;
@@ -29,6 +30,8 @@
   border-radius: 10px;
   position: relative;
   padding: $spacing-2;
+  margin-top: 52px;
+  margin-bottom: 20px;
   img {
     position: absolute;
     left: 50%;
@@ -39,4 +42,16 @@
     @include box-shadow;
     top: -48px;
   }
+}
+
+.splide__arrow--prev {
+  left: calc(18.75% - 12px);
+}
+
+.splide__arrow--next {
+  right: calc(18.75% - 12px);
+}
+
+.splide__arrow {
+  top: calc(50% + 12px);
 }
