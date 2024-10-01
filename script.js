@@ -20,6 +20,9 @@ const splideOptions = {
       fixedWidth: "80%",
       gap: "20px",
     },
+    768: {
+      drag: true,
+    },
     480: {
       fixedWidth: "95%",
       gap: "20px",
