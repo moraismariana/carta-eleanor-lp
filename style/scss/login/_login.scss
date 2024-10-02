@@ -4,6 +4,15 @@
   @include align-div;
   margin-top: 12px;
   margin-bottom: 12px;
+  svg {
+    max-width: 64px;
+    @include screen(notebook-m) {
+      max-width: 60px;
+    }
+    @include screen(tablet) {
+      max-width: 52px;
+    }
+  }
 }
 
 #admin-login {
