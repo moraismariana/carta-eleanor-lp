@@ -1,0 +1,17 @@
+#depoimentos.depoimentos-edit {
+  @include container;
+  .leitores-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+#edit-page {
+  input:nth-of-type(1) {
+    border: none;
+    outline: none;
+    @include title-2;
+    text-align: center;
+  }
+}
