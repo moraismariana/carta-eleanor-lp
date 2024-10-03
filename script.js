@@ -2,18 +2,19 @@
 
 let screenWidth = window.innerWidth;
 const splideOptions = {
-  autoplay: true,
+  autoplay: false,
   arrows: true,
   drag: false,
   pauseOnHover: false,
   pagination: false,
+  clones: "2",
 
   interval: 10000,
   speed: 1100,
-  //   updateOnMove: true,
-  focus: "center",
-  //   slideFocus: true,
   type: "loop",
+  focus: "center",
+  // slideFocus: true,
+  // updateOnMove: true,
   fixedWidth: "62.5%",
   gap: "28px",
 
@@ -48,20 +49,38 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("text4").innerText = data.secao2_titulo;
       document.getElementById("text5").innerText = data.secao2_texto;
       document.getElementById("text6").innerText = data.secao3_titulo;
-      document.getElementById("text7").innerText = data.leitor1_texto;
-      document.getElementById("text8").innerText = data.leitor1_nome;
-      document.getElementById("text9").innerText = data.leitor2_texto;
-      document.getElementById("text10").innerText = data.leitor2_nome;
-      document.getElementById("text11").innerText = data.leitor3_texto;
-      document.getElementById("text12").innerText = data.leitor3_nome;
-      document.getElementById("text13").innerText = data.leitor4_texto;
-      document.getElementById("text14").innerText = data.leitor4_nome;
-      document.getElementById("text15").innerText = data.leitor5_texto;
-      document.getElementById("text16").innerText = data.leitor5_nome;
+      document.querySelector(".text7").innerText = data.leitor1_texto;
+      document.querySelector(".text8").innerText = data.leitor1_nome;
+      document.querySelector(".text9").innerText = data.leitor2_texto;
+      document.querySelector(".text10").innerText = data.leitor2_nome;
+      document.querySelector(".text11").innerText = data.leitor3_texto;
+      document.querySelector(".text12").innerText = data.leitor3_nome;
+      document.querySelector(".text13").innerText = data.leitor4_texto;
+      document.querySelector(".text14").innerText = data.leitor4_nome;
+      document.querySelector(".text15").innerText = data.leitor5_texto;
+      document.querySelector(".text16").innerText = data.leitor5_nome;
       document.getElementById("text17").innerText = data.secao4_titulo;
       document.getElementById("text18").innerText = data.secao4_texto;
       document.getElementById("text19").innerText = data.secao5_texto;
       document.getElementById("text20").innerText = data.secao5_botao;
+
+      // Clones do Splide
+      document.querySelector("#splide01-slide04 .text13").innerText =
+        data.leitor4_texto;
+      document.querySelector("#splide01-slide04 .text14").innerText =
+        data.leitor4_nome;
+      document.querySelector("#splide01-slide05 .text15").innerText =
+        data.leitor5_texto;
+      document.querySelector("#splide01-slide05 .text16").innerText =
+        data.leitor5_nome;
+      document.querySelector("#splide01-clone03 .text7").innerText =
+        data.leitor1_texto;
+      document.querySelector("#splide01-clone03 .text8").innerText =
+        data.leitor1_nome;
+      document.querySelector("#splide01-clone04 .text9").innerText =
+        data.leitor2_texto;
+      document.querySelector("#splide01-clone04 .text10").innerText =
+        data.leitor2_nome;
     })
     .catch((error) => {
       console.error("Erro ao buscar dados da API:", error);
