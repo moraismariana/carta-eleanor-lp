@@ -125,3 +125,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 });
+
+// const textareas = document.querySelectorAll("textarea");
+
+// textareas.forEach((textarea) => {
+//   textarea.addEventListener("input", function () {
+//     this.style.height = "1em";
+//     this.style.height = `${this.scrollHeight - 10}px`;
+//   });
+// });

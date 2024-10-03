@@ -5,7 +5,7 @@
   color: $w;
   text-align: center;
   @include mbottom-1;
-  div {
+  & > div {
     @include container;
     padding-top: (2 * $spacing-1);
     padding-bottom: (2 * $spacing-1);
