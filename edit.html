@@ -19,84 +19,88 @@
 </head>
 
 <body id="edit-page">
-    <section>
-        <p>Você está no modo de edição.</p>
-        <button>Salvar</button>
-    </section>
+    <form id="update-form">
+        <section>
+            <p>Você está no modo de edição.</p>
+            <button type="submit">Salvar</button>
+        </section>
 
-    <article id="inicio">
-        <img src="./img/inicio/gabriel-liddel.jpg" alt="Gabriel Liddel">
-        <div>
-            <h2><input type="text"></h2>
-            <h1><input type="text"></h1>
-            <p>Uma história de amor, mistério e redenção acontecida em 1920.</p>
-        </div>
-    </article>
-
-    <section id="historia">
-        <div>
-            <h2>Conheça essa história</h2>
-            <p>A Última Carta de Eleanor leva o leitor a uma viagem pela Londres melancólica e cheia de glamour dos anos 1920. George Wainwright, um respeitado advogado, é surpreendido ao receber uma carta de Eleanor Whitmore, a mulher que um dia amou, e que todos acreditavam estar morta há mais de 25 anos. A carta traz revelações que vão mudar sua vida para sempre.</p>
-        </div>
-    </section>
-
-    <section id="depoimentos" class="depoimentos-edit">
-        <h2>Depoimentos dos leitores</h2>
-        <div class="leitores-flex">
-            <div class="leitor">
-                <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
-                <p>Gabriel Liddel criou uma obra-prima. A profundidade emocional deste livro é impressionante. É impossível não se conectar com George e sua jornada de autodescoberta.</p>
-                <p>Felipe Martins</p>
+        <article id="inicio">
+            <img src="./img/inicio/gabriel-liddel.jpg" alt="Gabriel Liddel">
+            <div>
+                <h2><input type="text" id="input1"></h2>
+                <h1><input type="text" id="input2"></h1>
+                <p><textarea id="input3" cols="60" rows="2"></textarea></p>
             </div>
+        </article>
 
-            <div class="leitor">
-                <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
-                <p>Gabriel Liddel criou uma obra-prima. A profundidade emocional deste livro é impressionante. É impossível não se conectar com George e sua jornada de autodescoberta.</p>
-                <p>Felipe Martins</p>
+        <section id="historia">
+            <div>
+                <h2><input type="text" id="input4"></h2>
+                <p><textarea id="input5" cols="80" rows="4"></textarea></p>
             </div>
+        </section>
 
-            <div class="leitor">
-                <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
-                <p>Gabriel Liddel criou uma obra-prima. A profundidade emocional deste livro é impressionante. É impossível não se conectar com George e sua jornada de autodescoberta.</p>
-                <p>Felipe Martins</p>
+        <section id="depoimentos" class="depoimentos-edit">
+            <h2><input type="text" id="input6"></h2>
+            <div class="leitores-flex">
+                <div class="leitor">
+                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <p><textarea id="input7" cols="80" rows="4"></textarea></p>
+                    <p><input type="text" id="input8"></p>
+                </div>
+
+                <div class="leitor">
+                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <p><textarea id="input9" cols="80" rows="4"></textarea></p>
+                    <p><input type="text" id="input10"></p>
+                </div>
+
+                <div class="leitor">
+                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <p><textarea id="input11" cols="80" rows="4"></textarea></p>
+                    <p><input type="text" id="input12"></p>
+                </div>
+
+                <div class="leitor">
+                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <p><textarea id="input13" cols="80" rows="4"></textarea></p>
+                    <p><input type="text" id="input14"></p>
+                </div>
+
+                <div class="leitor">
+                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <p><textarea id="input15" cols="80" rows="4"></textarea></p>
+                    <p><input type="text" id="input16"></p>
+                </div>
             </div>
+        </section>
 
-            <div class="leitor">
-                <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
-                <p>Gabriel Liddel criou uma obra-prima. A profundidade emocional deste livro é impressionante. É impossível não se conectar com George e sua jornada de autodescoberta.</p>
-                <p>Felipe Martins</p>
+        <section id="autor">
+            <h2><input type="text" id="input17"> </h2>
+            <div class="autor-grid">
+                <div class="autor-imagens">
+                    <img src="./img/autor/autor-2.jpg" alt="Montanhas">
+                    <img src="./img/autor/autor-1.jpg" alt="Gabriel Liddel fazendo trilha">
+                </div>
+                <p><textarea id="input18" cols="60" rows="6"></textarea></p>
             </div>
+        </section>
 
-            <div class="leitor">
-                <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
-                <p>Gabriel Liddel criou uma obra-prima. A profundidade emocional deste livro é impressionante. É impossível não se conectar com George e sua jornada de autodescoberta.</p>
-                <p>Felipe Martins</p>
+        <section id="cta">
+            <div>
+                <p><textarea id="input19" cols="60" rows="2"></textarea></p>
+                <a href=""><input type="text" id="input20"></a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="autor">
-        <h2>Conheça o autor</h2>
-        <div class="autor-grid">
-            <div class="autor-imagens">
-                <img src="./img/autor/autor-2.jpg" alt="Montanhas">
-                <img src="./img/autor/autor-1.jpg" alt="Gabriel Liddel fazendo trilha">
-            </div>
-            <p>Gabriel Liddel é um homem profundamente apaixonado pela escrita e pela natureza. Inspirado pelas longas caminhadas em meio à natureza e pela observação dos pequenos detalhes que nos rodeiam, ele escreve com o coração e a alma, transmitindo nas suas obras as emoções e reflexões que o movem na vida.</p>
-        </div>
-    </section>
+        <footer class="footer">
+            <p>Desenvolvido por Mariana Morais © 2024.</p>
+        </footer>
 
-    <section id="cta">
-        <div>
-            <p>Adquira seu exemplar agora e embarque nesta emocionante jornada.</p>
-            <a href="">Comprar agora</a>
-        </div>
-    </section>
+    </form>
 
-    <footer class="footer">
-        <p>Desenvolvido por Mariana Morais © 2024.</p>
-    </footer>
-
+    <script src="./update.js"></script>
 </body>
 
 </html>
