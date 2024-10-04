@@ -67,6 +67,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("input18").value = data.secao4_texto;
     document.getElementById("input19").value = data.secao5_texto;
     document.getElementById("input20").value = data.secao5_botao;
+
+    // Imagens
+    document.getElementById("img1").src = data.secao1_imagemAutor;
+    document.getElementById("img2").src = data.leitor1_imagem;
+    document.getElementById("img3").src = data.leitor2_imagem;
+    document.getElementById("img4").src = data.leitor3_imagem;
+    document.getElementById("img5").src = data.leitor4_imagem;
+    document.getElementById("img6").src = data.leitor5_imagem;
+    document.getElementById("img7").src = data.secao4_imagem2;
+    document.getElementById("img8").src = data.secao4_imagem1;
   } catch (error) {
     console.error("Erro ao carregar dados para edição:", error);
     alert("Erro ao carregar dados.");
@@ -78,37 +88,67 @@ document.addEventListener("DOMContentLoaded", async () => {
     .addEventListener("submit", async function (event) {
       event.preventDefault();
 
-      const updatedData = {
-        secao1_titulo1: document.getElementById("input1").value,
-        secao1_titulo2: document.getElementById("input2").value,
-        secao1_descricao: document.getElementById("input3").value,
-        secao2_titulo: document.getElementById("input4").value,
-        secao2_texto: document.getElementById("input5").value,
-        secao3_titulo: document.getElementById("input6").value,
-        leitor1_texto: document.getElementById("input7").value,
-        leitor1_nome: document.getElementById("input8").value,
-        leitor2_texto: document.getElementById("input9").value,
-        leitor2_nome: document.getElementById("input10").value,
-        leitor3_texto: document.getElementById("input11").value,
-        leitor3_nome: document.getElementById("input12").value,
-        leitor4_texto: document.getElementById("input13").value,
-        leitor4_nome: document.getElementById("input14").value,
-        leitor5_texto: document.getElementById("input15").value,
-        leitor5_nome: document.getElementById("input16").value,
-        secao4_titulo: document.getElementById("input17").value,
-        secao4_texto: document.getElementById("input18").value,
-        secao5_texto: document.getElementById("input19").value,
-        secao5_botao: document.getElementById("input20").value,
-      };
+      // Cria um FormData para os dados do formulário
+      const formData = new FormData();
+
+      // Adiciona os dados de texto ao FormData
+      formData.append(
+        "secao1_titulo1",
+        document.getElementById("input1").value
+      );
+      formData.append(
+        "secao1_titulo2",
+        document.getElementById("input2").value
+      );
+      formData.append(
+        "secao1_descricao",
+        document.getElementById("input3").value
+      );
+      formData.append("secao2_titulo", document.getElementById("input4").value);
+      formData.append("secao2_texto", document.getElementById("input5").value);
+      formData.append("secao3_titulo", document.getElementById("input6").value);
+      formData.append("leitor1_texto", document.getElementById("input7").value);
+      formData.append("leitor1_nome", document.getElementById("input8").value);
+      formData.append("leitor2_texto", document.getElementById("input9").value);
+      formData.append("leitor2_nome", document.getElementById("input10").value);
+      formData.append(
+        "leitor3_texto",
+        document.getElementById("input11").value
+      );
+      formData.append("leitor3_nome", document.getElementById("input12").value);
+      formData.append(
+        "leitor4_texto",
+        document.getElementById("input13").value
+      );
+      formData.append("leitor4_nome", document.getElementById("input14").value);
+      formData.append(
+        "leitor5_texto",
+        document.getElementById("input15").value
+      );
+      formData.append("leitor5_nome", document.getElementById("input16").value);
+      formData.append(
+        "secao4_titulo",
+        document.getElementById("input17").value
+      );
+      formData.append("secao4_texto", document.getElementById("input18").value);
+      formData.append("secao5_texto", document.getElementById("input19").value);
+      formData.append("secao5_botao", document.getElementById("input20").value);
+
+      // Verifica se o arquivo de imagem foi selecionado
+      const img1 = document.getElementById("img1-input").files[0]; // ID do campo de input de imagem
+      if (img1) {
+        // Se o arquivo foi selecionado, adiciona ao FormData
+        formData.append("secao1_imagemAutor", img1);
+      }
 
       try {
+        // Faz a requisição PATCH com o FormData
         const updateResponse = await fetch(apiUrl, {
           method: "PATCH",
           headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
+            Authorization: "Bearer " + token, // Cabeçalhos sem 'Content-Type', pois o FormData o define automaticamente
           },
-          body: JSON.stringify(updatedData),
+          body: formData, // Usa o FormData para enviar os dados
         });
 
         if (!updateResponse.ok) {
@@ -125,12 +165,3 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 });
-
-// const textareas = document.querySelectorAll("textarea");
-
-// textareas.forEach((textarea) => {
-//   textarea.addEventListener("input", function () {
-//     this.style.height = "1em";
-//     this.style.height = `${this.scrollHeight - 10}px`;
-//   });
-// });

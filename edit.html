@@ -28,7 +28,27 @@
         </section>
 
         <article id="inicio">
-            <img src="./img/inicio/gabriel-liddel.jpg" alt="Gabriel Liddel">
+            <img id="img1" src="" alt="Gabriel Liddel">
+            <input type="file" id="img1-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+            <script>
+                // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                document.getElementById('img1').addEventListener('click', function () {
+                    document.getElementById('img1-input').click();
+                });
+
+                // Função para trocar a imagem após selecionar um arquivo
+                document.getElementById('img1-input').addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        // Quando o arquivo for lido, alterar a imagem
+                        reader.onload = function (e) {
+                            document.getElementById('img1').src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
             <div>
                 <h2><input type="text" id="input1"></h2>
                 <textarea id="input2" rows="1"></textarea>
@@ -47,31 +67,31 @@
             <h2><input type="text" id="input6"></h2>
             <div class="leitores-flex">
                 <div class="leitor">
-                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <img id="img2" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
                     <p><textarea id="input7"></textarea></p>
                     <p><input type="text" id="input8"></p>
                 </div>
 
                 <div class="leitor">
-                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <img id="img3" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
                     <p><textarea id="input9"></textarea></p>
                     <p><input type="text" id="input10"></p>
                 </div>
 
                 <div class="leitor">
-                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <img id="img4" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
                     <p><textarea id="input11"></textarea></p>
                     <p><input type="text" id="input12"></p>
                 </div>
 
                 <div class="leitor">
-                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <img id="img5" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
                     <p><textarea id="input13"></textarea></p>
                     <p><input type="text" id="input14"></p>
                 </div>
 
                 <div class="leitor">
-                    <img src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <img id="img6" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
                     <p><textarea id="input15"></textarea></p>
                     <p><input type="text" id="input16"></p>
                 </div>
@@ -82,8 +102,8 @@
             <h2><input type="text" id="input17"> </h2>
             <div class="autor-grid">
                 <div class="autor-imagens">
-                    <img src="./img/autor/autor-2.jpg" alt="Montanhas">
-                    <img src="./img/autor/autor-1.jpg" alt="Gabriel Liddel fazendo trilha">
+                    <img id="img7" src="./img/autor/autor-2.jpg" alt="Montanhas">
+                    <img id="img8" src="./img/autor/autor-1.jpg" alt="Gabriel Liddel fazendo trilha">
                 </div>
                 <p><textarea id="input18" rows="5"></textarea></p>
             </div>

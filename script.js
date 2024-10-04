@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
+      // Textos
       document.getElementById("text1").innerText = data.secao1_titulo1;
       document.getElementById("text2").innerText = data.secao1_titulo2;
       document.getElementById("text3").innerText = data.secao1_descricao;
@@ -63,6 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("text18").innerText = data.secao4_texto;
       document.getElementById("text19").innerText = data.secao5_texto;
       document.getElementById("text20").innerText = data.secao5_botao;
+
+      // Imagens
+      document.getElementById("img1").src = data.secao1_imagemAutor;
+      document.getElementById("img2").src = data.leitor1_imagem;
+      document.getElementById("img3").src = data.leitor2_imagem;
+      document.getElementById("img4").src = data.leitor3_imagem;
+      document.getElementById("img5").src = data.leitor4_imagem;
+      document.getElementById("img6").src = data.leitor5_imagem;
+      document.getElementById("img7").src = data.secao4_imagem2;
+      document.getElementById("img8").src = data.secao4_imagem1;
 
       // Clones do Splide
       document.querySelector("#splide01-slide04 .text13").innerText =

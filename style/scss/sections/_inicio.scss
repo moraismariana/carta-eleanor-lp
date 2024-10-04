@@ -9,6 +9,8 @@
     border-radius: 120px;
     width: 120px;
     height: 120px;
+    object-fit: cover;
+    object-position: center;
     @include border;
     @include box-shadow;
     @include screen(notebook-m) {
