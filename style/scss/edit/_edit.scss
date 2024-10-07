@@ -41,11 +41,16 @@
     padding: 0.4em 1em;
     cursor: pointer;
     white-space: nowrap;
+    transition: 0.2s;
+    &:hover {
+      background-color: #242424;
+    }
   }
   #bg1-button {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: $spacing-3;
+    left: 50%;
+    transform: translateX(-50%);
   }
   #bg2-button,
   #bg3-button {
@@ -76,6 +81,9 @@
   #input2 {
     @include mbottom-3;
   }
+  #input1 {
+    margin-top: $spacing-3;
+  }
 }
 
 #edit-header {
@@ -91,5 +99,17 @@
     padding-top: 20px;
     padding-bottom: 20px;
     gap: 20px;
+  }
+}
+
+#edit-page {
+  #inicio {
+    height: 100vh;
+    #img1 {
+      top: $spacing-1;
+    }
+    &::before {
+      height: ($spacing-1 + px-rem((120px + 16px)/2));
+    }
   }
 }
