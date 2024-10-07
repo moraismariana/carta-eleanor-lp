@@ -42,6 +42,16 @@
     cursor: pointer;
     white-space: nowrap;
   }
+  #bg1-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #bg2-button,
+  #bg3-button {
+    @include align-div;
+    margin-top: $spacing-3;
+  }
   #input1,
   #input2,
   #input3,

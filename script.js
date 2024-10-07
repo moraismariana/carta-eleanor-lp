@@ -75,23 +75,48 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("img7").src = data.secao4_imagem2;
       document.getElementById("img8").src = data.secao4_imagem1;
 
+      // Backgrounds
+      document.getElementById(
+        "historia"
+      ).style.backgroundImage = `url(${data.secao2_imagemFundo})`;
+      document.getElementById(
+        "cta"
+      ).style.backgroundImage = `url(${data.secao5_imagemFundo})`;
+
+      // Pseudo-elemento
+      const element = document.getElementById("inicio");
+      element.classList.add("dynamic-background");
+
+      const styleSheet = document.styleSheets[0];
+      styleSheet.insertRule(
+        `#inicio.dynamic-background::before { background-image: url(${data.secao1_imagemFundo}); }`,
+        styleSheet.cssRules.length
+      );
+
       // Clones do Splide
       document.querySelector("#splide01-slide04 .text13").innerText =
         data.leitor4_texto;
       document.querySelector("#splide01-slide04 .text14").innerText =
         data.leitor4_nome;
+      document.querySelector("#splide01-slide04 img").src = data.leitor4_imagem;
+
       document.querySelector("#splide01-slide05 .text15").innerText =
         data.leitor5_texto;
       document.querySelector("#splide01-slide05 .text16").innerText =
         data.leitor5_nome;
+      document.querySelector("#splide01-slide05 img").src = data.leitor5_imagem;
+
       document.querySelector("#splide01-clone03 .text7").innerText =
         data.leitor1_texto;
       document.querySelector("#splide01-clone03 .text8").innerText =
         data.leitor1_nome;
+      document.querySelector("#splide01-clone03 img").src = data.leitor1_imagem;
+
       document.querySelector("#splide01-clone04 .text9").innerText =
         data.leitor2_texto;
       document.querySelector("#splide01-clone04 .text10").innerText =
         data.leitor2_nome;
+      document.querySelector("#splide01-clone04 img").src = data.leitor2_imagem;
     })
     .catch((error) => {
       console.error("Erro ao buscar dados da API:", error);

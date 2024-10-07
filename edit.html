@@ -23,11 +23,38 @@
         <section id="edit-header">
             <div>
                 <p>Você está no modo de edição.</p>
-                <button type="submit">Salvar página</button>
+                <button id="salvar" type="submit">Salvar página</button>
             </div>
         </section>
 
         <article id="inicio">
+            <input type="file" id="bg1-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+            <button id="bg1-button" type="button">BG</button>
+            <script>
+                // Ao clicar no botão, o campo de input de arquivo será ativado
+                document.getElementById('bg1-button').addEventListener('click', function () {
+                    document.getElementById('bg1-input').click();
+                });
+
+                // Troca o background quando um arquivo for selecionado
+                document.getElementById('bg1-input').addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const imageUrl = e.target.result;
+
+                            // Altera o background dinamicamente
+                            const styleSheet = document.styleSheets[0];
+                            const element = document.getElementById("inicio");
+                            element.classList.add("dynamic-background");
+
+                            styleSheet.insertRule(`#inicio.dynamic-background::before { background-image: url(${imageUrl}); }`, styleSheet.cssRules.length);
+                        };
+                        reader.readAsDataURL(file); // Lê o arquivo selecionado
+                    }
+                });
+            </script>
             <img id="img1" src="" alt="Gabriel Liddel">
             <input type="file" id="img1-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
             <script>
@@ -60,7 +87,26 @@
             <div>
                 <h2><input type="text" id="input4"></h2>
                 <p><textarea id="input5" rows="4"></textarea></p>
+
+                <input type="file" id="bg2-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                <button id="bg2-button" type="button">BG</button>
             </div>
+            <script>
+                document.getElementById('bg2-button').addEventListener('click', function () {
+                    document.getElementById('bg2-input').click();
+                });
+
+                document.getElementById('bg2-input').addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById('historia').style.backgroundImage = `url(${e.target.result})`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
         </section>
 
         <section id="depoimentos" class="depoimentos-edit">
@@ -68,30 +114,130 @@
             <div class="leitores-flex">
                 <div class="leitor">
                     <img id="img2" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <input type="file" id="img2-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img2').addEventListener('click', function () {
+                            document.getElementById('img2-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img2-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img2').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                     <p><textarea id="input7"></textarea></p>
                     <p><input type="text" id="input8"></p>
                 </div>
 
                 <div class="leitor">
                     <img id="img3" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <input type="file" id="img3-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img3').addEventListener('click', function () {
+                            document.getElementById('img3-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img3-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img3').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                     <p><textarea id="input9"></textarea></p>
                     <p><input type="text" id="input10"></p>
                 </div>
 
                 <div class="leitor">
                     <img id="img4" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <input type="file" id="img4-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img4').addEventListener('click', function () {
+                            document.getElementById('img4-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img4-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img4').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                     <p><textarea id="input11"></textarea></p>
                     <p><input type="text" id="input12"></p>
                 </div>
 
                 <div class="leitor">
                     <img id="img5" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <input type="file" id="img5-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img5').addEventListener('click', function () {
+                            document.getElementById('img5-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img5-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img5').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                     <p><textarea id="input13"></textarea></p>
                     <p><input type="text" id="input14"></p>
                 </div>
 
                 <div class="leitor">
                     <img id="img6" src="./img/depoimentos/depoimentos-1.jpg" alt="Leitor">
+                    <input type="file" id="img6-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img6').addEventListener('click', function () {
+                            document.getElementById('img6-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img6-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img6').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                     <p><textarea id="input15"></textarea></p>
                     <p><input type="text" id="input16"></p>
                 </div>
@@ -103,7 +249,47 @@
             <div class="autor-grid">
                 <div class="autor-imagens">
                     <img id="img7" src="./img/autor/autor-2.jpg" alt="Montanhas">
+                    <input type="file" id="img7-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img7').addEventListener('click', function () {
+                            document.getElementById('img7-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img7-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img7').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                     <img id="img8" src="./img/autor/autor-1.jpg" alt="Gabriel Liddel fazendo trilha">
+                    <input type="file" id="img8-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    <script>
+                        // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                        document.getElementById('img8').addEventListener('click', function () {
+                            document.getElementById('img8-input').click();
+                        });
+
+                        // Função para trocar a imagem após selecionar um arquivo
+                        document.getElementById('img8-input').addEventListener('change', function (event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                // Quando o arquivo for lido, alterar a imagem
+                                reader.onload = function (e) {
+                                    document.getElementById('img8').src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                 </div>
                 <p><textarea id="input18" rows="5"></textarea></p>
             </div>
@@ -113,7 +299,26 @@
             <div>
                 <p><textarea id="input19" rows="1"></textarea></p>
                 <div><input type="text" id="input20"></div>
+
+                <input type="file" id="bg3-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                <button id="bg3-button" type="button">BG</button>
             </div>
+            <script>
+                document.getElementById('bg3-button').addEventListener('click', function () {
+                    document.getElementById('bg3-input').click();
+                });
+
+                document.getElementById('bg3-input').addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById('cta').style.backgroundImage = `url(${e.target.result})`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
         </section>
 
         <footer class="footer">

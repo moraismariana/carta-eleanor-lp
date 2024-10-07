@@ -77,6 +77,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("img6").src = data.leitor5_imagem;
     document.getElementById("img7").src = data.secao4_imagem2;
     document.getElementById("img8").src = data.secao4_imagem1;
+
+    // Backgrounds
+    document.getElementById(
+      "historia"
+    ).style.backgroundImage = `url(${data.secao2_imagemFundo})`;
+
+    document.getElementById(
+      "cta"
+    ).style.backgroundImage = `url(${data.secao5_imagemFundo})`;
+
+    // Pseudo elementos
+    const element = document.getElementById("inicio");
+    element.classList.add("dynamic-background");
+
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(
+      `#inicio.dynamic-background::before { background-image: url(${data.secao1_imagemFundo}); }`,
+      styleSheet.cssRules.length
+    );
   } catch (error) {
     console.error("Erro ao carregar dados para edição:", error);
     alert("Erro ao carregar dados.");
@@ -134,11 +153,52 @@ document.addEventListener("DOMContentLoaded", async () => {
       formData.append("secao5_texto", document.getElementById("input19").value);
       formData.append("secao5_botao", document.getElementById("input20").value);
 
-      // Verifica se o arquivo de imagem foi selecionado
-      const img1 = document.getElementById("img1-input").files[0]; // ID do campo de input de imagem
+      // imagens
+      const img1 = document.getElementById("img1-input").files[0];
       if (img1) {
-        // Se o arquivo foi selecionado, adiciona ao FormData
         formData.append("secao1_imagemAutor", img1);
+      }
+      const img2 = document.getElementById("img2-input").files[0];
+      if (img2) {
+        formData.append("leitor1_imagem", img2);
+      }
+      const img3 = document.getElementById("img3-input").files[0];
+      if (img3) {
+        formData.append("leitor2_imagem", img3);
+      }
+      const img4 = document.getElementById("img4-input").files[0];
+      if (img4) {
+        formData.append("leitor3_imagem", img4);
+      }
+      const img5 = document.getElementById("img5-input").files[0];
+      if (img5) {
+        formData.append("leitor4_imagem", img5);
+      }
+      const img6 = document.getElementById("img6-input").files[0];
+      if (img6) {
+        formData.append("leitor5_imagem", img6);
+      }
+      const img7 = document.getElementById("img7-input").files[0];
+      if (img7) {
+        formData.append("secao4_imagem2", img7);
+      }
+      const img8 = document.getElementById("img8-input").files[0];
+      if (img8) {
+        formData.append("secao4_imagem1", img8);
+      }
+
+      // backgrounds
+      const bg1 = document.getElementById("bg1-input").files[0];
+      if (bg1) {
+        formData.append("secao1_imagemFundo", bg1);
+      }
+      const bg2 = document.getElementById("bg2-input").files[0];
+      if (bg2) {
+        formData.append("secao2_imagemFundo", bg2);
+      }
+      const bg3 = document.getElementById("bg3-input").files[0];
+      if (bg3) {
+        formData.append("secao5_imagemFundo", bg3);
       }
 
       try {

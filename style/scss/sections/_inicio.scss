@@ -76,3 +76,7 @@
     transform: translateX(-50%);
   }
 }
+
+.dynamic-background::before {
+  background-image: url("");
+}
