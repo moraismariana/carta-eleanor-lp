@@ -156,7 +156,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       // imagens
       const img1 = document.getElementById("img1-input").files[0];
       if (img1) {
-        formData.append("secao1_imagemAutor", img1);
+        const imgDataUrl = document.getElementById("img1").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("secao1_imagemAutor", blob, "imagem-autor.png");
+        }
       }
       const img2 = document.getElementById("img2-input").files[0];
       if (img2) {

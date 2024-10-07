@@ -55,22 +55,50 @@
                     }
                 });
             </script>
-            <img id="img1" src="" alt="Gabriel Liddel">
+            <img id="img1" src="" alt="Gabriel Liddel" data-width="152" data-height="152">
             <input type="file" id="img1-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
             <script>
-                // Quando a imagem for clicada, o campo de seleção de arquivo será ativado
+                // Ativar o campo de seleção de arquivo ao clicar na imagem
                 document.getElementById('img1').addEventListener('click', function () {
                     document.getElementById('img1-input').click();
                 });
 
-                // Função para trocar a imagem após selecionar um arquivo
+                // Redimensionar e trocar a imagem após selecionar um arquivo
                 document.getElementById('img1-input').addEventListener('change', function (event) {
                     const file = event.target.files[0];
                     if (file) {
                         const reader = new FileReader();
-                        // Quando o arquivo for lido, alterar a imagem
                         reader.onload = function (e) {
-                            document.getElementById('img1').src = e.target.result;
+                            const img = new Image();
+                            img.onload = function () {
+                                const canvas = document.createElement('canvas');
+                                const ctx = canvas.getContext('2d');
+
+                                // Obter largura e altura personalizadas dos atributos data da <img>
+                                const targetWidth = parseInt(document.getElementById('img1').getAttribute('data-width'));
+                                const targetHeight = parseInt(document.getElementById('img1').getAttribute('data-height'));
+
+                                // Calcular a proporção para o crop
+                                const aspectRatio = Math.max(targetWidth / img.width, targetHeight / img.height);
+                                const newWidth = img.width * aspectRatio;
+                                const newHeight = img.height * aspectRatio;
+                                const offsetX = (newWidth - targetWidth) / 2;
+                                const offsetY = (newHeight - targetHeight) / 2;
+
+                                // Definir o tamanho do canvas com as dimensões alvo
+                                canvas.width = targetWidth;
+                                canvas.height = targetHeight;
+
+                                // Desenhar a imagem cortada e centralizada no canvas
+                                ctx.drawImage(img, -offsetX, -offsetY, newWidth, newHeight);
+
+                                // Converter o canvas para URL e atualizar o src da imagem
+                                document.getElementById('img1').src = canvas.toDataURL(file.type);
+
+                                // Armazenar a imagem redimensionada para referência posterior (upload para API)
+                                document.getElementById('img1').dataset.imageData = canvas.toDataURL(file.type);
+                            };
+                            img.src = e.target.result;
                         };
                         reader.readAsDataURL(file);
                     }
