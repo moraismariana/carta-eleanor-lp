@@ -37,6 +37,8 @@
     left: 50%;
     transform: translateX(-50%);
     height: 80px;
+    width: 80px;
+    object-fit: cover;
     border-radius: 50px;
     @include border;
     @include box-shadow;

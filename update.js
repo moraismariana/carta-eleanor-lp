@@ -167,33 +167,103 @@ document.addEventListener("DOMContentLoaded", async () => {
           formData.append("secao1_imagemAutor", blob, "imagem-autor.png");
         }
       }
+
       const img2 = document.getElementById("img2-input").files[0];
       if (img2) {
-        formData.append("leitor1_imagem", img2);
+        const imgDataUrl = document.getElementById("img2").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("leitor1_imagem", blob, "leitor-1.png");
+        }
       }
+
       const img3 = document.getElementById("img3-input").files[0];
       if (img3) {
-        formData.append("leitor2_imagem", img3);
+        const imgDataUrl = document.getElementById("img3").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("leitor2_imagem", blob, "leitor-2.png");
+        }
       }
+
       const img4 = document.getElementById("img4-input").files[0];
       if (img4) {
-        formData.append("leitor3_imagem", img4);
+        const imgDataUrl = document.getElementById("img4").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("leitor3_imagem", blob, "leitor-3.png");
+        }
       }
+
       const img5 = document.getElementById("img5-input").files[0];
       if (img5) {
-        formData.append("leitor4_imagem", img5);
+        const imgDataUrl = document.getElementById("img5").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("leitor4_imagem", blob, "leitor-4.png");
+        }
       }
+
       const img6 = document.getElementById("img6-input").files[0];
       if (img6) {
-        formData.append("leitor5_imagem", img6);
+        const imgDataUrl = document.getElementById("img6").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("leitor5_imagem", blob, "leitor-5.png");
+        }
       }
+
       const img7 = document.getElementById("img7-input").files[0];
       if (img7) {
-        formData.append("secao4_imagem2", img7);
+        const imgDataUrl = document.getElementById("img7").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("secao4_imagem2", blob, "autor-1.png");
+        }
       }
+
       const img8 = document.getElementById("img8-input").files[0];
       if (img8) {
-        formData.append("secao4_imagem1", img8);
+        const imgDataUrl = document.getElementById("img8").dataset.imageData;
+
+        if (imgDataUrl) {
+          // Converter o Data URL (base64) em um Blob
+          const response = await fetch(imgDataUrl);
+          const blob = await response.blob();
+
+          // Adicionar o Blob ao FormData
+          formData.append("secao4_imagem1", blob, "autor-2.png");
+        }
       }
 
       // backgrounds
